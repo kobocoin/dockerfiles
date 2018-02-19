@@ -1,4 +1,5 @@
 ## Docker build your own Kobocoin v2.1.0.3 fullnode 
+Container size : 404MB
 ```
 git clone https://github.com/kobocoin/dockerfiles
 cd dockerfiles/Source-v2103
@@ -10,12 +11,12 @@ docker run -it --rm -p 5900 --mount type=bind,source=/home/kobocoin/.Kobocoin,de
 Note: The home directory can be any name of your choice but make sure that the `docker run` command is also updated.
 
 The prior step creates and runs a container and gives you a command prompt on it. From that prompt:
-
+```
 . /entrypoint.sh
 kobocoin-qt &
 x11vnc -display :1 -usepw
-
-entrypoint.sh sets a machine id and then sets up Xvfp so that kobocoin-qt can use it. Next, execute kobocoin-qt in demonic mode (see the trailing &) Finally, execute x11vnc so that we can see kobooin-qt from a VNC viewer on the host. When this first runs, it will ask for a password. You'll need this password in your VNC viewer.
+```
+entrypoint.sh sets a machine id and then sets up Xvfp so that kobocoin-qt can use it. Next, execute kobocoin-qt (note the trailing &) Finally, execute x11vnc so that we can see kobooin-qt from a VNC viewer on the host. When this first runs, it will ask for a password. You'll need this password in your VNC viewer.
 
 #### Next
 ```
