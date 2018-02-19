@@ -1,14 +1,18 @@
 ## Docker build your own Kobocoin v2.1.0.3 fullnode 
-Container size : 404MB
+
++ Container size - 404MB
++ Installed as root - If built in a production environment please review security
++ wallet.dat - location of your choice
+#### Build it
 ```
 git clone https://github.com/kobocoin/dockerfiles
-cd dockerfiles/Source-v2103
+cd dockerfiles/v2103-stable
 docker build -t kobocoin-v2103 . (note the trailing ".")
 mkdir /home/kobocoin/.Kobocoin
 chmod -R 775 /home/kobocoin/.Kobocoin
 docker run -it --rm -p 5900 --mount type=bind,source=/home/kobocoin/.Kobocoin,destination=/root/.Kobocoin kobocoin-v2103
 ```
-Note: The home directory can be any name of your choice but make sure that the `docker run` command is also updated.
+Note: The home directory can be any location of your choice but make sure that the `docker run` command is also updated.
 
 The prior step creates and runs a container and gives you a command prompt on it. From that prompt:
 ```
