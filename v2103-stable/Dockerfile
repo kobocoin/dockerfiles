@@ -52,7 +52,8 @@ RUN apt-get install -y --no-install-recommends libboost-all-dev
 # 5.Now build it
 WORKDIR /opt/Kobocoin/src
 
-RUN make -f makefile.unix USE_UPNP=-
+RUN make -f makefile.unix USE_UPNP=- \
+&& strip Kobocoind
 
 # Kobocoind should be useable
 # ./Kobocoind -daemon -rpcuser=user -rpcpassword=password
@@ -62,8 +63,9 @@ RUN make -f makefile.unix USE_UPNP=-
 RUN apt-get install -y --no-install-recommends libqt4-dev qt4-qmake
 
 WORKDIR /opt/Kobocoin
-RUN qmake
-RUN make
+RUN qmake \
+&& make \
+&& strip kobocoin-qt
 
 COPY entrypoint.sh /
 RUN chmod 755 /entrypoint.sh
