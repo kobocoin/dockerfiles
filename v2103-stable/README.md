@@ -19,6 +19,8 @@ The prior step creates and runs a container and gives you a command prompt on it
 
 Decide if you will be running the GUI or daemon.
 ##### Running the daemon
+First, set the appropriate privileges on the host machine using: 
+`xhost +local:root`
 ```
 cd /opt/Kobocoin/src
 ./Kobocoind &
