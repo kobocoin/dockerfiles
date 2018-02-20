@@ -60,7 +60,8 @@ RUN make -f makefile.unix USE_UPNP=- \
 
 
 # 6. Now install qt4 and build the gui
-RUN apt-get install -y --no-install-recommends libqt4-dev qt4-qmake
+RUN apt-get install -y --no-install-recommends qt5-default qt5-qmake
+# RUN apt-get install -y --no-install-recommends libqt4-dev qt4-qmake
 
 WORKDIR /opt/Kobocoin
 RUN qmake \
