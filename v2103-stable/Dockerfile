@@ -66,7 +66,7 @@ WORKDIR /opt/Kobocoin
 RUN qmake \
 && make \
 && strip kobocoin-qt \
-&& printf "QT_X11_NO_MITSHM=1\nDISPLAY=$DISPLAY\n" >> /etc/environment
+&& printf "QT_X11_NO_MITSHM=1\nDISPLAY=:0\n" >> /etc/environment
 
 COPY entrypoint.sh /
 RUN chmod 755 /entrypoint.sh
