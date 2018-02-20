@@ -65,8 +65,7 @@ RUN apt-get install -y --no-install-recommends libqt4-dev qt4-qmake
 WORKDIR /opt/Kobocoin
 RUN qmake \
 && make \
-&& strip kobocoin-qt \
-&& printf "QT_X11_NO_MITSHM=1\nDISPLAY=:0\n" >> /etc/environment
+&& strip kobocoin-qt
 
 COPY entrypoint.sh /
 RUN chmod 755 /entrypoint.sh
