@@ -2,7 +2,6 @@
 
 + Software installed - Kobocoind, kobocoin-qt
 + wallet.dat - Any location of your choice
-+ Container size - 404MB
 + Installed as root - If built in a production environment please review security
 #### Build it
 ```
