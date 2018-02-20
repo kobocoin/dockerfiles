@@ -51,4 +51,4 @@ Finally, run your VNC viewer of choice and connect to that port on localhost. Fo
 Use `docker commit` to create a new image: [Docker Documentation - docker commit](https://docs.docker.com/engine/reference/commandline/commit/)
 
 #### Problems syncing?
-If you're having problems syncing with the network you may need to add nodes to the `Kobocoin.conf` file. An up to date node list can always be found here (check Satoshi:2.1.0.3 node list ): [Kobocoin Block Explorer](https://chainz.cryptoid.info/kobo/#!network)
+If you're having problems syncing with the network you may need to add nodes to the **Kobocoin.conf** file. An up to date node list can always be found here (check Satoshi:2.1.0.3 node list ): [Kobocoin Block Explorer](https://chainz.cryptoid.info/kobo/#!network)
