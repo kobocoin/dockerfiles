@@ -10,11 +10,17 @@ cd dockerfiles/v2103-stable
 docker build -t kobocoin-v2103 . (note the trailing ".")
 mkdir /home/kobocoin/.Kobocoin
 chmod -R 775 /home/kobocoin/.Kobocoin
-docker run -it --rm -p 5900 --mount type=bind,source=/home/kobocoin/.Kobocoin,destination=/root/.Kobocoin kobocoin-v2103
+docker run -it -v /tmp/.X11-unix:/tmp/.X11-unix:ro --rm -p 5900 --mount type=bind,source=/home/kobocoin/.Kobocoin,destination=/root/.Kobocoin kobocoin-v2103
 ```
 Note: The home directory can be any location of your choice but make sure that the `docker run` command is also updated.
 
-The prior step creates and runs a container and gives you a command prompt on it. From that prompt:
+The prior step creates and runs a container and gives you a command prompt on it. It also  sets up the X11 for use with the GUI (if required). From that prompt:
+```
+./kobocoin-qt &
+```
+The wallet should display on your desktop (if you have an X server running).
+
+If you prefer to use VNC, then from the prompt:
 ```
 . /entrypoint.sh
 kobocoin-qt &
@@ -29,3 +35,7 @@ docker ps
 This will give you a display of all your running containers. You'll see kobocoin-v2103 and can determine which port on the local host it's using.
 
 Finally, run your VNC viewer of choice and connect to that port on localhost. For example, if you see that port 5900 in the container has been mapped to port 32768 on the host, you would connect to 127.0.0.1:32768. Recall that you'll need the password you set for x11vnc earlier.
+
+#### Problems syncing?
+If you're having problems syncing with the network you may need to add nodes to the `Kobocoin.conf` file. An up to date node list can always be found here (check Satoshi:2.1.0.3 node list ):
+[Kobocoin Block Explorer](https://chainz.cryptoid.info/kobo/#!network)
