@@ -59,14 +59,15 @@ RUN make -f makefile.unix USE_UPNP=- \
 # ./Kobocoind -daemon -rpcuser=user -rpcpassword=password
 
 
-# 6. Now install qt4 and build the gui
+# 6. Now install qt5 and build the gui
 RUN apt-get install -y --no-install-recommends qt5-default qt5-qmake
-# RUN apt-get install -y --no-install-recommends libqt4-dev qt4-qmake
+# Previous - RUN apt-get install -y --no-install-recommends libqt4-dev qt4-qmake
 
 WORKDIR /opt/Kobocoin
 RUN qmake \
 && make \
 && strip kobocoin-qt
+&& printf "QT_X11_NO_MITSHM=1\nDISPLAY=$DISPLAY\n" >> /etc/environment
 
 COPY entrypoint.sh /
 RUN chmod 755 /entrypoint.sh
