@@ -1,7 +1,7 @@
 ## Docker build your own Kobocoin v2.1.0.3 fullnode 
 
 + Software installed - Kobocoind, kobocoin-qt
-+ wallet.dat - location of your choice
++ wallet.dat - Any location of your choice
 + Container size - 404MB
 + Installed as root - If built in a production environment please review security
 #### Build it
