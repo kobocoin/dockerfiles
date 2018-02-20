@@ -16,16 +16,21 @@ docker run -it -v /tmp/.X11-unix:/tmp/.X11-unix:ro --rm -p 5900 --mount type=bin
 Note: The home directory can be any location of your choice but make sure that the `docker run` command is also updated.
 
 The prior step creates and runs a container and gives you a command prompt on it. It also couples the working directories of the X server in the container and in the OS.
+#### Run entrypoint.sh
+entrypoint.sh sets a machine id and then sets up Xvfp so that kobocoin-qt can use it. 
+```
+/entrypoint.sh
+```
 
 Decide if you will be running the GUI or daemon.
 ##### Running the daemon
-First, set the appropriate privileges on the host machine using: 
-`xhost +local:root`
 ```
 cd /opt/Kobocoin/src
 ./Kobocoind &
 ```
 ##### Running the wallet (GUI)
+First, set the appropriate privileges on the host machine using: 
+`xhost +local:root`
 ```
 cd /opt/Kobocoin
 ./kobocoin-qt &
@@ -35,11 +40,10 @@ The wallet should display on your desktop (if you have an X server running on th
 ##### Running the wallet (GUI) using VNC
 If you prefer to use VNC, then from the prompt:
 ```
-. /entrypoint.sh
 kobocoin-qt &
 x11vnc -display :1 -usepw
 ```
-entrypoint.sh sets a machine id and then sets up Xvfp so that kobocoin-qt can use it. Next, execute kobocoin-qt (note the trailing &) Finally, execute x11vnc so that we can see kobooin-qt from a VNC viewer on the host. When this first runs, it will ask for a password. You'll need this password in your VNC viewer.
+Execute x11vnc so that we can see kobocoin-qt from a VNC viewer on the host. When this first runs, it will ask for a password. You'll need this password in your VNC viewer.
 
 Next
 ```
