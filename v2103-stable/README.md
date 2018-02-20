@@ -48,9 +48,7 @@ This will give you a display of all your running containers. You'll see kobocoin
 Finally, run your VNC viewer of choice and connect to that port on localhost. For example, if you see that port 5900 in the container has been mapped to port 32768 on the host, you would connect to 127.0.0.1:32768. Recall that you'll need the password you set for x11vnc earlier.
 
 #### Don't forget to create a new image
-`docker commit`
-[Docker Documentation - docker commit](https://docs.docker.com/engine/reference/commandline/commit/)
+Use `docker commit` to create a new image: [Docker Documentation - docker commit](https://docs.docker.com/engine/reference/commandline/commit/)
 
 #### Problems syncing?
-If you're having problems syncing with the network you may need to add nodes to the `Kobocoin.conf` file. An up to date node list can always be found here (check Satoshi:2.1.0.3 node list ):
-[Kobocoin Block Explorer](https://chainz.cryptoid.info/kobo/#!network)
+If you're having problems syncing with the network you may need to add nodes to the `Kobocoin.conf` file. An up to date node list can always be found here (check Satoshi:2.1.0.3 node list ): [Kobocoin Block Explorer](https://chainz.cryptoid.info/kobo/#!network)
