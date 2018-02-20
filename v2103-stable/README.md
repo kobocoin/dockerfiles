@@ -17,20 +17,20 @@ Note: The home directory can be any location of your choice but make sure that t
 
 The prior step creates and runs a container and gives you a command prompt on it. It also couples the working directories of the X server in the container and in the OS.
 
-Decide if you will be running the GUI or daemon
-##### If you are running the daemon then start it
+Decide if you will be running the GUI or daemon.
+##### Running the daemon
 ```
 cd /opt/Kobocoin/src
 ./Kobocoind &
 ```
-##### If you are running the wallet (GUI) then start it
+##### Running the wallet (GUI)
 ```
 cd /opt/Kobocoin
 ./kobocoin-qt &
 ```
 The wallet should display on your desktop (if you have an X server running on the host OS).
 
-#### Using VNC
+##### Running the wallet (GUI) using VNC
 If you prefer to use VNC, then from the prompt:
 ```
 . /entrypoint.sh
